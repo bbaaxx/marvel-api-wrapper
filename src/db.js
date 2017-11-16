@@ -1,4 +1,4 @@
+import persist from 'node-persist';
 export default callback => {
-  // connect to a database if needed, then pass it to `callback`:
-  callback();
+  persist.init().then(instance => callback(persist));
 };

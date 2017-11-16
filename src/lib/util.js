@@ -17,3 +17,17 @@ export function toRes(res, status = 200) {
     res.status(status).json(thing);
   };
 }
+
+export function getCachedWrapper(db) {
+  return function(config) {
+    return db
+      .getItem(config.uri)
+      .then(
+        cachedData => (cachedData ? Promise.resolve(cachedData) : rp(config)),
+      )
+      .then(data => {
+        db.setItem(config.uri, data);
+        return Promise.resolve(data);
+      });
+  };
+}

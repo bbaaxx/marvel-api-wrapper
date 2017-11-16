@@ -1,5 +1,8 @@
 {
 	"port": 8080,
 	"bodyLimit": "100kb",
-	"corsHeaders": ["Link"]
+	"corsHeaders": ["Link"],
+	"marvelApiUri": "https://gateway.marvel.com:443/v1/public",
+	"apiKey": "abbcb54834de36c46b6425c2a3c9dcae",
+	"privateKey": "b0efd2fc2bb9121675ccc0baae4bdceb063866d9"
 }
