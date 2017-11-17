@@ -23,8 +23,8 @@ export default ({ config, db }) =>
     },
 
     /** GET / - List all entities */
-    index({ params }, res) {
-      const config = getRequestConfig();
+    index({ params, query }, res) {
+      const config = getRequestConfig(null, query);
       cw(db)(config)
         .then(cachedData => res.json(cachedData))
         .catch(e => res.json(e));
